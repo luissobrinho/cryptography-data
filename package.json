@@ -1,0 +1,22 @@
+{
+  "name": "cryptography-data",
+  "version": "1.0.0",
+  "description": "Cripyt data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luissobrinho/cryptography-data.git"
+  },
+  "keywords": [
+    "cryptography"
+  ],
+  "author": "crypt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luissobrinho/cryptography-data/issues"
+  },
+  "homepage": "https://github.com/luissobrinho/cryptography-data#readme"
+}
