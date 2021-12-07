@@ -7,7 +7,7 @@ let utf8Encode = new TextEncoder();
 const buffer = utf8Encode.encode(message)
 console.log("data in bytes:", buffer);
 
-const data = CryptoJS.AES.encrypt(JSON.stringify(buffer), privateKey).toString();
+const data = CryptoJS.AES.encrypt(JSON.stringify({dataBytes: buffer}), privateKey).toString();
 console.log('Key generate:', data);
 
 
@@ -21,11 +21,13 @@ console.log('bytes', bytes);
 const originalBytes = JSON.parse(CryptoJS.AES.decrypt(bytes, privateKey).toString(CryptoJS.enc.Utf8));
 console.log('originalBytes: ', originalBytes);
 
-const keysToUpdate = Object.keys(originalBytes);
+const { dataBytes } = originalBytes;
+
+const keysToUpdate = Object.keys(dataBytes);
 
 let arrBytes = []
 keysToUpdate.map((key) => {
-    const value = originalBytes?.[key];
+    const value = dataBytes?.[key];
     if (value) {
         arrBytes[key] = value;
     }
