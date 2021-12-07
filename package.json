@@ -4,6 +4,7 @@
   "description": "Cripyt data",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/luissobrinho/cryptography-data/issues"
   },
-  "homepage": "https://github.com/luissobrinho/cryptography-data#readme"
+  "homepage": "https://github.com/luissobrinho/cryptography-data#readme",
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
 }
