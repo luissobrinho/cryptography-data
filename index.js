@@ -1,20 +1,25 @@
 const CryptoJS = require("crypto-js");
 
+/**
+ * Crypt
+ */
 const {message, privateKey} = {message: 'Teste', privateKey: '2f77668a9dfbf8d5848b9eeb4a7145ca94c6ed9236e4a773f6dcafa5132b2f91'}; // ...
 console.log('Input:', message);
 
 let utf8Encode = new TextEncoder();
 const buffer = utf8Encode.encode(message)
-console.log("data in bytes:", buffer);
+console.log("buffer:", buffer);
 
 const data = CryptoJS.AES.encrypt(JSON.stringify({dataBytes: buffer}), privateKey).toString();
-console.log('Key generate:', data);
+console.log('data (Send data):', data);
 
 
 const ciphertext = CryptoJS.Rabbit.encrypt(data, privateKey).toString();
-console.log('cryptography data:', ciphertext);
+console.log('ciphertext (Receive data):', ciphertext);
 
-
+/**
+ * Decrypt
+ */
 const bytes = CryptoJS.Rabbit.decrypt(ciphertext, privateKey).toString(CryptoJS.enc.Utf8);
 console.log('bytes', bytes);
 
